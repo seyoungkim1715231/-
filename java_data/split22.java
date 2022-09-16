@@ -39,9 +39,7 @@ public class split22 {//성분코드랑 성분이랑 분리
 	        		   String tmp2="";
 	        		   String tmp3="";
 	        		   String tmp4="";
-	        		   
-	        		   
-	        		   	        	
+	        		       	
 	        		   ingr=rs.getString("MAIN_INGR");
 	        		   
 	        		   if(ingr==null) 
@@ -50,9 +48,7 @@ public class split22 {//성분코드랑 성분이랑 분리
 	        		   
 	        		   String[] splitn= ingr.split("\\[|\\]|\\|");
 	        		   //String[] array= {};
-	        		   
-	        		   				  
-					  for(int i=0;i<splitn.length;i++) 
+			           for(int i=0;i<splitn.length;i++) 
 					  {  		
 						  
 						  if(splitn[i].isEmpty()) {
@@ -82,8 +78,6 @@ public class split22 {//성분코드랑 성분이랑 분리
 					
 		
 				    	int resultsql = pstmt.executeUpdate();
-				    					
-
 				    					
 	        	   }
 	        	   	          
