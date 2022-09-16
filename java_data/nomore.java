@@ -19,7 +19,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 
 
-public class nomore {
+public class nomore { //ì–€ì„¼ ì˜ì•½í’ˆ íŒŒì‹±
 	public void jsonex() throws ClassNotFoundException {
 		// TODO Auto-generated method stub
 		try {
@@ -30,19 +30,19 @@ public class nomore {
 	           Statement stmt = con.createStatement();
 	           ResultSet rs=null;
 	           PreparedStatement pstmt = null;
-	           System.out.println("MS-SQL ¼­¹ö Á¢¼Ó¿¡ ¼º°øÇÏ¿´½À´Ï´Ù.");
+	           System.out.println("MS-SQL ì„œë²„ ì ‘ì†ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤.");
 	           String sql = "INSERT INTO IGRCODEINFO (DRUG_NAME, GNL_CODE, DRUG_CODE)"
-						+ " VALUES (?,?,?)";//¿©±â ¼öÁ¤ÇØ¾ßÇÔ 
+						+ " VALUES (?,?,?)";//ì—¬ê¸° ìˆ˜ì •í•´ì•¼í•¨ 
 	     
 	 
-	           for (int page=1;page<4;page++) {//4±îÁö
+	           for (int page=1;page<4;page++) {//4ê¹Œì§€
 		    		 String pageNum=Integer.toString(page);
 				    		 //String pageNum=Integer.toString(page);
 				    		 StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B551182/dgamtCrtrInfoService/getDgamtList"); /*URL*/
 				    	        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=LgPg%2BnD2Oy1X1zQBRYI%2FoGjOVdSa17g9KbfkO2xI7ZF68WYcYHtkCncTTmzS5Uw22mSynmpVfnW7TlF0o5WexA%3D%3D"); /*Service Key*/
-				    	        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("4", "UTF-8")); /*ÆäÀÌÁö¹øÈ£*/
-				    	        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("100", "UTF-8")); /*ÇÑ ÆäÀÌÁö °á°ú ¼ö*/
-				    	        urlBuilder.append("&" + URLEncoder.encode("mnfEntpNm","UTF-8") + "=" + URLEncoder.encode("¾á¼¾", "UTF-8")); /*Ç°¸ñ¸í (°Ë»ö À¯Çü : %A%)*/
+				    	        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("4", "UTF-8")); /*í˜ì´ì§€ë²ˆí˜¸*/
+				    	        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("100", "UTF-8")); /*í•œ í˜ì´ì§€ ê²°ê³¼ ìˆ˜*/
+				    	        urlBuilder.append("&" + URLEncoder.encode("mnfEntpNm","UTF-8") + "=" + URLEncoder.encode("ì–€ì„¼", "UTF-8")); /*í’ˆëª©ëª… (ê²€ìƒ‰ ìœ í˜• : %A%)*/
 				    	       
 				    	       
 				    	        URL url = new URL(urlBuilder.toString());
@@ -77,9 +77,9 @@ public class nomore {
 				    			//String count=String.valueOf(parse_body.get("totalCount"));
 				    			Object count =(Object) parse_body.get("totalCount");
 								  //System.out.println(parse_body.get("totalCount"));
-									if(count.toString().equals("0")) //¿©±â ºñ±³°¡ ¾ÈµÊ. 
+									if(count.toString().equals("0")) //ì—¬ê¸° ë¹„êµê°€ ì•ˆë¨. 
 				    				{
-										  System.out.println("¸Ş·Õ");
+										  System.out.println("ë©”ë¡±");
 										  continue; 
 									}
 				    				JSONObject parse_item = (JSONObject) parse_body.get("items");
@@ -88,11 +88,11 @@ public class nomore {
 				    					pstmt = con.prepareStatement(sql);
 				    					JSONObject drug = (JSONObject) parse_item.get("item");
 				    					//System.out.println(drug.toString());
-				    					String mix_t = (String) drug.get("itmNm");// ¾àÇ°ÀÌ¸§
+				    					String mix_t = (String) drug.get("itmNm");// ì•½í’ˆì´ë¦„
 				    					pstmt.setString(1, mix_t);
-				    				    String ingr_code = (String) drug.get("gnlNmCd");//¼ººĞÄÚµå 
+				    				    String ingr_code = (String) drug.get("gnlNmCd");//ì„±ë¶„ì½”ë“œ 
 				    					pstmt.setString(2,ingr_code); 
-				    					String ingr_Ename = String.valueOf(drug.get("mdsCd")) ;//¾àÇ°ÄÚµå
+				    					String ingr_Ename = String.valueOf(drug.get("mdsCd")) ;//ì•½í’ˆì½”ë“œ
 				    					pstmt.setString(3, ingr_Ename); 
 				    					int resultsql = pstmt.executeUpdate();
 				    					
@@ -108,18 +108,18 @@ public class nomore {
 						    					pstmt = con.prepareStatement(sql);
 						    					JSONObject drug = (JSONObject) parse_listArr.get(i);
 						    					//System.out.println(drug.toString());
-						    					String mix_t = (String) drug.get("itmNm");// ¾àÇ°ÀÌ¸§
+						    					String mix_t = (String) drug.get("itmNm");// ì•½í’ˆì´ë¦„
 						    					pstmt.setString(1, mix_t);
-						    				    String ingr_code = (String) drug.get("gnlNmCd");//¼ººĞÄÚµå 
+						    				    String ingr_code = (String) drug.get("gnlNmCd");//ì„±ë¶„ì½”ë“œ 
 						    					pstmt.setString(2,ingr_code); 
-						    					String ingr_Ename = String.valueOf(drug.get("mdsCd")) ;//¾àÇ°ÄÚµå
+						    					String ingr_Ename = String.valueOf(drug.get("mdsCd")) ;//ì•½í’ˆì½”ë“œ
 						    					pstmt.setString(3, ingr_Ename); 
 						    					  
 						    					  
 						    					 
 
 						    					int resultsql = pstmt.executeUpdate();
-						    					// System.out.println("Ã³¸®µÈ ·¹ÄÚµå ¼ö"+resultsql);
+						    					// System.out.println("ì²˜ë¦¬ëœ ë ˆì½”ë“œ ìˆ˜"+resultsql);
 
 						    				}
 
@@ -139,7 +139,7 @@ public class nomore {
 		        con.close();
 		
 		}catch(SQLException e) {
-			System.out.println(e+ "=> Sql ¿¹¿Ü ");
+			System.out.println(e+ "=> Sql ì˜ˆì™¸ ");
 			
 		}catch(Exception e) {
 			e.printStackTrace();
