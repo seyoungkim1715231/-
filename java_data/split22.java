@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 
 
-public class split22 {//¼ººÐÄÚµå¶û ¼ººÐÀÌ¶û ºÐ¸®
+public class split22 {//ì„±ë¶„ì½”ë“œëž‘ ì„±ë¶„ì´ëž‘ ë¶„ë¦¬
 	public void jsonex() throws ClassNotFoundException {
 		// TODO Auto-generated method stub
 		try {
@@ -21,9 +21,9 @@ public class split22 {//¼ººÐÄÚµå¶û ¼ººÐÀÌ¶û ºÐ¸®
 	           Statement stmt = con.createStatement();
 	           ResultSet rs=null;
 	           PreparedStatement pstmt = null;
-	           System.out.println("MS-SQL ¼­¹ö Á¢¼Ó¿¡ ¼º°øÇÏ¿´½À´Ï´Ù.");
+	           System.out.println("MS-SQL ì„œë²„ ì ‘ì†ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤.");
 	           String sql = "INSERT INTO SPLIT (INGR_CODE,INGR_NAME)"
-				+ " VALUES (?,?)";//¿©±â ¼öÁ¤ÇØ¾ßÇÔ 
+				+ " VALUES (?,?)";//ì—¬ê¸° ìˆ˜ì •í•´ì•¼í•¨ 
 	     
 	           
 	        	   String sql1="SELECT DISTINCT MAIN_INGR FROM NEWDRUGINFO";
@@ -77,56 +77,21 @@ public class split22 {//¼ººÐÄÚµå¶û ¼ººÐÀÌ¶û ºÐ¸®
 							  }
 							  				 						  
 						  }
-						  
-						  
-						 // pstmt = con.prepareStatement(sql);
-					    // if(splitn[i].charAt(0)=='M'||splitn[i].charAt(0)=='B') {
-					    //   pstmt.setString(1, splitn[i]);
-					    //   System.out.println(splitn[i]);
-					       
-					     //}
-					    // else {
-					    //	 pstmt.setString(2, splitn[i]); 
-					    //	 System.out.println(splitn[i]);
-					     //}
+						 
 					  } 
 					
-						 
-	        		   
-	 
-	        		   
-	        		   
-	        		   
-	        	
-	        		
-				    					//pstmt = con.prepareStatement(sql);
-				    					//JSONObject drug = (JSONObject) parse_item.get("item");
-				    					//System.out.println(drug.toString());
-				    					//String mix_t = (String) drug.get("itmNm");// ¾àÇ°ÀÌ¸§
-				    					//pstmt.setString(1, mix_t);
-				    				    ///String ingr_code = (String) drug.get("gnlNmCd");//¼ººÐÄÚµå 
-				    					//pstmt.setString(2,ingr_code); 
-				    					//String ingr_Ename = String.valueOf(drug.get("mdsCd")) ;//¾àÇ°ÄÚµå
-				    					//pstmt.setString(3, ingr_Ename); 
-				    					int resultsql = pstmt.executeUpdate();
+		
+				    	int resultsql = pstmt.executeUpdate();
 				    					
 
 				    					
 	        	   }
-				    				
-				    				
-
-						 //  int resultsql = pstmt.executeUpdate();
-						    					
-
-					    	        
-
 	        	   	          
 		    	stmt.close();   
 		        con.close();
 		
 		}catch(SQLException e) {
-			System.out.println(e+ "=> Sql ¿¹¿Ü ");
+			System.out.println(e+ "=> Sql ì˜ˆì™¸ ");
 			
 		}catch(Exception e) {
 			e.printStackTrace();
