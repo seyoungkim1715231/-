@@ -11,29 +11,25 @@ import java.util.*;
 
 
 
-public class makewarning {//¼ººĞÄÚµå¶û ¼ººĞÀÌ¶û ºĞ¸®
+public class makewarning {//ì„±ë¶„ì½”ë“œë‘ ì„±ë¶„ì´ë‘ ë¶„ë¦¬
 	public void jsonex() throws ClassNotFoundException {
 		// TODO Auto-generated method stub
 		try {
 			
-			   Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+	           Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 	           String connectionUrl = "jdbc:sqlserver://localhost:1433;database=seyoung;integratedSecurity=true";
-			   Connection con = DriverManager.getConnection(connectionUrl);
+	           onnection con = DriverManager.getConnection(connectionUrl);
 	           Statement stmt1 = con.createStatement();
 	           Statement stmt2 = con.createStatement();
 	           ResultSet rs=null;
 	           ResultSet rs2=null;
 	           PreparedStatement pstmt = null;
 	           List<String> ingrlist = new ArrayList<String>();
-	           System.out.println("MS-SQL ¼­¹ö Á¢¼Ó¿¡ ¼º°øÇÏ¿´½À´Ï´Ù.");
-	          //¿©±â ¼öÁ¤ÇØ¾ßÇÔ 
-	           String sql = "UPDATE TOTALINFO SET WARNING=? WHERE DRUG_NAME=?";
-	          
-	     
-	           
-	        	   String sql1="SELECT DRUG_NAME,WARNING FROM TOTALINFO WHERE QESITM LIKE '%À½ÁÖ%'";
-	        	   
-	        	   rs = stmt1.executeQuery(sql1);
+	           System.out.println("MS-SQL ì„œë²„ ì ‘ì†ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤.");
+	          //ì—¬ê¸° ìˆ˜ì •í•´ì•¼í•¨ 
+	           String sql = "UPDATE TOTALINFO SET WARNING=? WHERE DRUG_NAME=?";	          	   	           
+	           String sql1="SELECT DRUG_NAME,WARNING FROM TOTALINFO WHERE QESITM LIKE '%ìŒì£¼%'";
+	            rs = stmt1.executeQuery(sql1);
 	        	   //System.out.println(rs.toString());
 	        	   
 	        	   
@@ -47,44 +43,26 @@ public class makewarning {//¼ººĞÄÚµå¶û ¼ººĞÀÌ¶û ºĞ¸®
 	        		   pstmt = con.prepareStatement(sql);        	
 	        		   
 	        		   if(warning!=null) {
-	        			   pstmt.setString(1,warning+",À½ÁÖ");
+	        			   pstmt.setString(1,warning+",ìŒì£¼");
 		        		   pstmt.setString(2,name);
 	        		   }
 	        		   
 	        		   else {
-	        			   pstmt.setString(1,"À½ÁÖ");
+	        			   pstmt.setString(1,"ìŒì£¼");
 		        		   pstmt.setString(2,name);
 	        		   }
 	        		   
 //	        		   	    
 //	        		   
-	        		   int resultsql = pstmt.executeUpdate();
-	        		   
-	        		   
-	        		   
-					       
+	        		   int resultsql = pstmt.executeUpdate();				       
 	        	   }
 	        	   
-	        	   stmt1.close();  
-	        	   
-	        	   
-	        
-	        	   
-				    				
-				    				
-
-						 
-						    					
-
-					    	        
-
-	        	   	          
-		    	
+	        	stmt1.close();  
 		        con.close();
 		        
 		
 		}catch(SQLException e) {
-			System.out.println(e+ "=> Sql ¿¹¿Ü ");
+			System.out.println(e+ "=> Sql ì˜ˆì™¸ ");
 			
 		}catch(Exception e) {
 			e.printStackTrace();
