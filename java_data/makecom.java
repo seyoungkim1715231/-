@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 
 
-public class makecom {//¼ººÐÄÚµå¶û ¼ººÐÀÌ¶û ºÐ¸®
+public class makecom {//ì„±ë¶„ì½”ë“œëž‘ ì„±ë¶„ì´ëž‘ ë¶„ë¦¬
 	public void jsonex() throws ClassNotFoundException {
 		// TODO Auto-generated method stub
 		try {
@@ -21,7 +21,7 @@ public class makecom {//¼ººÐÄÚµå¶û ¼ººÐÀÌ¶û ºÐ¸®
 	           Statement stmt = con.createStatement();
 	           ResultSet rs=null;
 	           PreparedStatement pstmt = null;
-	           System.out.println("MS-SQL ¼­¹ö Á¢¼Ó¿¡ ¼º°øÇÏ¿´½À´Ï´Ù.");
+	           System.out.println("MS-SQL ì„œë²„ ì ‘ì†ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤.");
 	        
 	           
 	        	   String sql1="SELECT DISTINCT INGR_NAME FROM SPLIT";
@@ -42,43 +42,29 @@ public class makecom {//¼ººÐÄÚµå¶û ¼ººÐÀÌ¶û ºÐ¸®
 	        		   tmp1='"'+ingr+'"'+',';
 	        		   System.out.println(tmp1);
 	        		   
-	        		   
-	        	
-						 
-	        		   
-	 
-	        		   
-	        		   
-	        		   
-	        	
+
 	        		
 				    					//pstmt = con.prepareStatement(sql);
 				    					//JSONObject drug = (JSONObject) parse_item.get("item");
 				    					//System.out.println(drug.toString());
-				    					//String mix_t = (String) drug.get("itmNm");// ¾àÇ°ÀÌ¸§
+				    					//String mix_t = (String) drug.get("itmNm");// ì•½í’ˆì´ë¦„
 				    					//pstmt.setString(1, mix_t);
-				    				    ///String ingr_code = (String) drug.get("gnlNmCd");//¼ººÐÄÚµå 
+				    				    ///String ingr_code = (String) drug.get("gnlNmCd");//ì„±ë¶„ì½”ë“œ 
 				    					//pstmt.setString(2,ingr_code); 
-				    					//String ingr_Ename = String.valueOf(drug.get("mdsCd")) ;//¾àÇ°ÄÚµå
+				    					//String ingr_Ename = String.valueOf(drug.get("mdsCd")) ;//ì•½í’ˆì½”ë“œ
 				    					//pstmt.setString(3, ingr_Ename); 
 				    					
 
 				    					
 	        	   }
-				    				
-				    				
-
-						 //  int resultsql = pstmt.executeUpdate();
-						    					
-
-					    	        
-
+				    			
+			//  int resultsql = pstmt.executeUpdate();
 	        	   	          
 		    	stmt.close();   
 		        con.close();
 		
 		}catch(SQLException e) {
-			System.out.println(e+ "=> Sql ¿¹¿Ü ");
+			System.out.println(e+ "=> Sql ì˜ˆì™¸ ");
 			
 		}catch(Exception e) {
 			e.printStackTrace();
