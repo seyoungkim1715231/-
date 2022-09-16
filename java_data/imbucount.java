@@ -11,7 +11,7 @@ import java.util.*;
 
 
 
-public class imbucount {//¼ººĞÄÚµå¶û ¼ººĞÀÌ¶û ºĞ¸®
+public class imbucount {//ì„±ë¶„ì½”ë“œë‘ ì„±ë¶„ì´ë‘ ë¶„ë¦¬
 	public void jsonex() throws ClassNotFoundException {
 		// TODO Auto-generated method stub
 		try {
@@ -25,18 +25,15 @@ public class imbucount {//¼ººĞÄÚµå¶û ¼ººĞÀÌ¶û ºĞ¸®
 	           ResultSet rs2=null;
 	           PreparedStatement pstmt = null;
 	           List<String> ingrlist = new ArrayList<String>();
-	           System.out.println("MS-SQL ¼­¹ö Á¢¼Ó¿¡ ¼º°øÇÏ¿´½À´Ï´Ù.");
-	          //¿©±â ¼öÁ¤ÇØ¾ßÇÔ 
+	           System.out.println("MS-SQL ì„œë²„ ì ‘ì†ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤.");
+	          //ì—¬ê¸° ìˆ˜ì •í•´ì•¼í•¨ 
 	           String sql = "UPDATE TOTALINFO SET IMBU_COUNT=? WHERE DRUG_NAME=?";
-	          
-	     
-	           
+	          	           
 	        	   String sql1="SELECT DRUG_NAME,IMBU_COUNT,MAIN_INGR FROM TOTALINFO WHERE IMBU_COUNT IS NOT NULL";
 	        	   
 	        	   rs = stmt1.executeQuery(sql1);
 	        	   //System.out.println(rs.toString());
-	        	   
-	        	   
+	        	   	        	   
 	        	   while(rs.next()) {
 	        		  
 	        		   String name="";
@@ -44,8 +41,6 @@ public class imbucount {//¼ººĞÄÚµå¶û ¼ººĞÀÌ¶û ºĞ¸®
 	        		   int count;
 	        		   //int tmp;
 	        		   
-	        		  
-	        		        	
 	        		   name=rs.getString("DRUG_NAME");
 	        		   ingr=rs.getString("MAIN_INGR");
 	        		   count=rs.getInt("IMBU_COUNT");
@@ -55,41 +50,20 @@ public class imbucount {//¼ººĞÄÚµå¶û ¼ººĞÀÌ¶û ºĞ¸®
 	        		   if(count>spl.length) {
 	        			   count=spl.length;
 	        		   }
-	        		  
-	        		  
-	        		   
-	        		  
+	        		  	        		  	        		  	        		  
 	        		   pstmt = con.prepareStatement(sql);        		    
 	        		   pstmt.setInt(1,count);
 	        		   pstmt.setString(2,name);
 	        		   int resultsql = pstmt.executeUpdate();
 	        		   
-	        		   
-	        		   
-					       
-	        	   }
-	        	   
+	        		   	        		   					       	        	   }	        	   
 	        	   stmt1.close();  
-	        	   pstmt.close();
-	        	   
-	        	   
-	        
-	        	   
-				    				
-				    				
-
-						 
-						    					
-
-					    	        
-
-	        	   	          
-		    	
+	        	   pstmt.close();	        	   
+	        	           
 		        con.close();
-		        
-		
+		        		
 		}catch(SQLException e) {
-			System.out.println(e+ "=> Sql ¿¹¿Ü ");
+			System.out.println(e+ "=> Sql ì˜ˆì™¸ ");
 			
 		}catch(Exception e) {
 			e.printStackTrace();
